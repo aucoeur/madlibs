@@ -1,4 +1,4 @@
-# MadLibs to go here
+# MadLibs Spec: https://docs.google.com/document/d/1suR3hzqfGSL9o99rNbDrcU0N1Z47EREubP38IY4Ptuc/edit#heading=h.i5zc39w8ruz2
 
 # Story Template
 # Dear Diary,
