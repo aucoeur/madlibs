@@ -46,6 +46,10 @@ def init_prompt():
 
         print('\n' + player_name.upper() + "\'S MAD LIB")
         print('-----------------------------')
+        # Mad Lib story template
+        story = Template('Dear Diary,\n\nIt\'s me, ' + player_name + '.  I\'ve been here for $low_num days.  Today I woke up with $num $bug bites.  At least, it\'s not $animal bites.\n\nIt\'s been $adj.  I love the $adj2 weather here but the $noun leaves much to be desired.  School is $adverb ramping up.\n\nI\'m $adj3. My $noun2 is eager to $verb soon.  I hope $verb2 won\'t be too much of an issue!\n\nLove, ' + player_name)
+
+        print(story.substitute(input_words))
     elif start == 'no' or start == 'n':
         print('GOODBYE')
     else:
@@ -55,8 +59,3 @@ def init_prompt():
 player_name = input('Hello there. What\'s your name? ')
 
 init_prompt()
-
-# Mad Lib story template
-story = Template('Dear Diary,\n\nIt\'s me, ' + player_name + '.  I\'ve been here for $low_num days.  Today I woke up with $num $bug bites.  At least, it\'s not $animal bites.\n\nIt\'s been $adj.  I love the $adj2 weather here but the $noun leaves much to be desired.  School is $adverb ramping up.\n\nI\'m $adj3. My $noun2 is eager to $verb soon.  I hope $verb2 won\'t be too much of an issue!\n\nLove, ' + player_name)
-
-print(story.substitute(input_words))
