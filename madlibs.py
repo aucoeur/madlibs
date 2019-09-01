@@ -3,59 +3,38 @@
 # Story Template
 # Dear Diary,
 # I've been here for [LOW NUMBER] days.  Today I woke up with [LOW NUMBER] [INSECT] bites.  At least, it's not a [INSECT] bite.  It's been [ADJECTIVE].  I love the [ADJECTIVE] weather here but the [NOUN] leaves much to be desired.  School is [ADVERB] ramping up.  I'm [ADJECTIVE]. My [NOUN] is eager to [VERB] soon.  I hope [VERB-ING] won't be too much of an issue! 
-# Love, [NAME]
+# Love, [NAME]    
 
-num_list = list()
+from string import Template
 
-def create(var_list, item):
-    var_list.append(item)
+# input_words = {
+#     'low_num': '3',
+#     'num': '10',
+#     'bug': 'mosquito',
+#     'animal': 'cat',
+#     'adj': 'frustrating',
+#     'adj2': 'windy',
+#     'adj3': 'stoked',
+#     'noun': 'hills',
+#     'noun2': 'family'
+#     'adverb': 'quickly',
+#     'verb': 'visit',
+#     'verb2': 'driving'}
 
-def list_all_items():
-    index = 0
-    for list_item in num_list:
-        print("{} {}".format(index, list_item))
-        index += 1
+# List of keys
+key_list = ["low_num", "num", "bug", "animal", "adj", "adj2", "adj3", "noun", "noun2", "adverb", "verb", "verb2"]
 
-def req_prompt():
-    required_dict = {
-        'req_nouns' : 2,
-        'req_adjs' : 3,
-        'req_bugs' : 2,
-        'req_verbs' : 2,
-        'req_adverbs' : 1
-    }
+# Initialize dictionary
+input_words = dict.fromkeys(key_list, None)
 
-    for each in required_dict.values():
-        index = int(each) - 1
-        # print(each, index)
-    
-        if len(num_list) < index:
-            prompt_user()
-            index += 1
+# Add words to dictionary
+def add_word():
+    for word_type, value in input_words.items():
+        value = input('Enter a ' + word_type + ": ")
+        input_words[word_type] = value
+        
+add_word()
 
-def prompt_user():
-    prompt_dict = {
-    'num_prompt': 'I need a number from 1-7: ',
-    'noun_prompt': 'Give me a noun: ',
-    'adj_prompt': 'Throw me an adjective: ',
-    'adverb_prompt': 'How about an adverb?: ',
-    'bug_prompt': 'Name an animal: '
-    }
+story = Template('Dear Diary,\nI\'ve been here for $low_num days.  Today I woke up with $num $bug bites.  At least, it\'s not a $animal bite.  It\'s been $adj.  I love the $adj2 weather here but the $noun leaves much to be desired.  School is $adverb ramping up.  I\'m $adj3. My $noun2 is eager to $verb soon.  I hope $verb2 won\'t be too much of an issue!\nLove, [NAME]')
 
-    low_num = input('OKAY. Let\'s go! ' + prompt_dict['num_prompt'])
-    create(num_list, low_num)
-
-def init_prompt():
-    start = input('Hello ' + player_name + '. Ready to play? ')
-    if start == 'yes':
-        req_prompt()
-        # list_all_items()
-    elif start == 'no':
-        print('GOODBYE')
-    else:
-        print('please enter yes or no')
-        init_prompt()
-
-player_name = input('Hello there. What\'s your name? ')
-
-init_prompt()
+print(story.substitute(input_words))
