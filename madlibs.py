@@ -5,7 +5,7 @@ from string import Template
 # List of keys
 key_list = ["num1", "num2", "bug", "animal", "adj", "adj2", "adj3", "noun", "noun2", "adverb", "verb", "verb2"]
 
-# List of keys and prompt phrasing
+# Dictionary of keys and prompt phrasing
 key_name = {
     'num1': 'a number',
     'num2': 'a number',
@@ -21,8 +21,7 @@ key_name = {
     'verb2': 'a verb ending in "-ing"'}
 
 # Initialize word dictionary for input words
-# input_words = dict.fromkeys(key_list, None)
-input_words = {}
+input_words = dict.fromkeys(key_list, None)
 
 # Ask for user inputs
 def add_words():
